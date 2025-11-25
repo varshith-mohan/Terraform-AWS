@@ -72,25 +72,6 @@ resource "aws_vpc" "example" {
 
 ```
 
-```hcl
-# ─────────────────────────────────────────────────────────────────
-# commands & lifecycle
-# ─────────────────────────────────────────────────────────────────
-
-# 1. terraform init
-#    - Downloads the provider binary from the Registry (hashicorp/aws@~>6.0),
-#    - Initializes backend & modules.
-#
-# 2. terraform plan
-#    - Shows the execution plan: what Terraform will create/change/destroy.
-#
-# 3. terraform apply
-#    - Applies the plan and makes API calls to the target (AWS) via the provider plugin.
-#
-# 4. terraform destroy
-#    - Tears down resources managed by the configuration.
-```
-
 ### Multiple Provider Versions
 ```hcl
 terraform {
@@ -108,5 +89,25 @@ terraform {
 ```
 
 
-## Next Steps
-Proceed to Day 3 to learn about creating your first AWS resources with Terraform and check task.md for your assignments.
+### commands & lifecycle
+```hcl
+# ─────────────────────────────────────────────────────────────────
+# Usage Notes
+# ─────────────────────────────────────────────────────────────────
+
+# 1. terraform init
+#    - Downloads the provider binary from the Registry (hashicorp/aws@~>6.0),
+#    - Initializes backend & modules.
+#
+# 2. terraform plan
+#    - Shows the execution plan: what Terraform will create/change/destroy.
+#
+# 3. terraform apply
+#    - Applies the plan and makes API calls to the target (AWS) via the provider plugin.
+#
+# 4. terraform destroy
+#    - Tears down resources managed by the configuration.
+```
+
+
+
