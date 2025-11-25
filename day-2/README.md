@@ -70,9 +70,9 @@ resource "aws_vpc" "example" {
   cidr_block = "10.0.0.0/16" # The CIDR block defines the private IPv4 address range for the VPC.
 }                           # "10.0.0.0/16" gives you 65,536 addresses for subnets inside this VPC
 
+```
 
-
-
+```hcl
 # ─────────────────────────────────────────────────────────────────
 # commands & lifecycle
 # ─────────────────────────────────────────────────────────────────
