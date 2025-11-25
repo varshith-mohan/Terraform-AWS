@@ -68,5 +68,5 @@ alias tf=terraform
 terraform -version
 ```
 
-https://chatgpt.com/backend-api/estuary/content?id=file_00000000f3dc71fd9715a50b8ed8569f&ts=490018&p=fs&cid=1&sig=757b1bb54f11160660041979a927928b0aefc28d3cf221d9d62871ab6cd3bc3e&v=0
+###
 
