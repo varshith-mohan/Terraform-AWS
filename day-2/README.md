@@ -44,18 +44,51 @@ Use version constraints to specify acceptable provider versions:
 
 ### Basic Provider Configuration
 ```hcl
+
+# 1) Tell Terraform which providers and versions are required
 terraform {
   required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = ">= 5.0"
+    aws = {                     # "source" specifies the registry namespace and provider name,
+      source  = "hashicorp/aws" # "hashicorp/aws" means the official AWS provider published by HashiCorp.
+      version = "~> 6.0"        # any version >= 6.0.0 and < 7.0.0
     }
   }
 }
 
+
+# 2) Configure the AWS Provider
 provider "aws" {
-  region = "us-east-1"
+  region = "us-east-1" # AWS region where resources will be created
 }
+
+# 3) Declare a resource (the actual infra you want Terraform to manage) 
+# Creating a Virtual Private Cloud (VPC) 
+# VPC is a logically isolated, private network within a public cloud 
+# where you can launch your cloud resources
+# resource is a key word 
+resource "aws_vpc" "example" {
+  cidr_block = "10.0.0.0/16" # The CIDR block defines the private IPv4 address range for the VPC.
+}                           # "10.0.0.0/16" gives you 65,536 addresses for subnets inside this VPC
+
+
+
+
+# ─────────────────────────────────────────────────────────────────
+# commands & lifecycle
+# ─────────────────────────────────────────────────────────────────
+
+# 1. terraform init
+#    - Downloads the provider binary from the Registry (hashicorp/aws@~>6.0),
+#    - Initializes backend & modules.
+#
+# 2. terraform plan
+#    - Shows the execution plan: what Terraform will create/change/destroy.
+#
+# 3. terraform apply
+#    - Applies the plan and makes API calls to the target (AWS) via the provider plugin.
+#
+# 4. terraform destroy
+#    - Tears down resources managed by the configuration.
 ```
 
 ### Multiple Provider Versions
