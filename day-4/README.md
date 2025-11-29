@@ -86,11 +86,31 @@ Create an S3 bucket with versioning and encryption enabled to store Terraform st
 ```hcl
 terraform {
   backend "s3" {
-    bucket       = "your-terraform-state-bucket"
-    key          = "dev/terraform.tfstate"
-    region       = "us-east-1"
-    use_lockfile = true
-    encrypt      = true
+    bucket       = "day-4-tf-s3-bucket-backend"
+    key          = "dev/terraform.tfstate" # terraform.tfstate file in dev folder
+    region       = "ap-south-2"
+    use_lockfile = true # locking beacuse to prevent state file from corrupting in multi user envirenment
+    encrypt      = true # encrypting the state file
+  }
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = "ap-south-2"
+}
+
+# create aws s3 bucket
+resource "aws_s3_bucket" "day-4-bucket" {
+  bucket = "day-4-tf-s3-bucket-test" # unique name for s3 bucket
+
+  tags = {
+    Name        = "day-4-demo-bucket"
+    Environment = "Dev"
   }
 }
 ```
