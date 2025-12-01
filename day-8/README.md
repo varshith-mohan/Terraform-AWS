@@ -292,14 +292,4 @@ After completing this lesson, you should be able to:
 
 Continue to Day 09 to learn about more advanced Terraform concepts!
 
-## 📞 Need Help?
-
-- Review the `task.md` file for detailed exercises
-- Check the inline comments in `main.tf` for explanations
-- Experiment with `terraform console` to test expressions
-- Read the official Terraform documentation
-
----
-
-**Happy Learning! 🚀**
 
